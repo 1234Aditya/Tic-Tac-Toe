@@ -1,5 +1,6 @@
 let boxes = document.querySelectorAll(".box");
 let turnO = true;
+let moveCount = 0;
 
 
 const arrays = [[0, 1, 2],
@@ -26,10 +27,14 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
+        moveCount++;
         checkWinner()
     });
 })
 const checkWinner = () => {
+    if (moveCount === 9) {
+        msg.innerText = "Game Draw!";
+    }
     for(let pattern of arrays){
         let posVal1 = boxes[pattern[0]].innerText;
         let posVal2 = boxes[pattern[1]].innerText;
