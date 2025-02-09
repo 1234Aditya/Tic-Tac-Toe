@@ -34,6 +34,7 @@ boxes.forEach((box) => {
 const checkWinner = () => {
     if (moveCount === 9) {
         msg.innerText = "Game Draw!";
+        disableBoxes();
     }
     for(let pattern of arrays){
         let posVal1 = boxes[pattern[0]].innerText;
